@@ -1,19 +1,7 @@
 #!/usr/bin/env bash
 
-cat << EOF >> /etc/pacman.d/mirrorlist
-Server = https://mirrors.sjtug.sjtu.edu.cn/archlinux/$repo/os/$arch
-Server = https://mirrors.dgut.edu.cn/archlinux/$repo/os/$arch
-Server = https://mirrors.bfsu.edu.cn/archlinux/$repo/os/$arch
-Server = http://mirrors.ustc.edu.cn/archlinux/$repo/os/$arch
-Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch
-Server = http://mirrors.cqu.edu.cn/archlinux/$repo/os/$arch
-Server = https://mirrors.hit.edu.cn/archlinux/$repo/os/$arch
-Server = https://mirrors.cqu.edu.cn/archlinux/$repo/os/$arch
-Server = rsync://rsync.mirrors.ustc.edu.cn/archlinux/$repo/os/$arch
-Server = http://mirrors.zju.edu.cn/archlinux/$repo/os/$arch
-Server = http://mirror.lzu.edu.cn/archlinux/$repo/os/$arch
-Server = http://mirrors.dgut.edu.cn/archlinux/$repo/os/$arch
-EOF
+cat mirrorlist >> /etc/pacman.d/mirrorlist
+
 
 pacstrap /mnt base base-devel linux linux-firmware bash-completion vim reflector grub efibootmgr
 genfstab -U /mnt/>>/etc/fstab
