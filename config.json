@@ -1,0 +1,51 @@
+{
+  "log":{
+      # "access":"/var/log/v2ray/access.log",
+      # "error":"/var/log/v2ray/error.log",
+      # "loglevel":"warning"
+  },	
+  "inbounds": [
+    {
+      "port": 1080, 
+      "protocol": "socks", 
+      "sniffing": {
+        "enabled": true,
+        "destOverride": ["http", "tls"]
+      },
+      "settings": {
+        "auth": "noauth"  
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "protocol": "vmess", 
+      "settings": {
+        "vnext": [
+          {
+            "address": "c18s3.jamjams.net",
+            "port": 19232,
+            "users": [
+              {
+                "id": "195d7a7c-e33b-4073-84a9-e08c0ed0bf67",
+                "alterId": 8
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "routing": {
+        "domainStrategy": "IPOnDemand",
+        "rules": [
+            {
+                "type": "field",
+                "ip": [
+                    "geoip:private"
+                ],
+                "outboundTag": "direct"
+            }
+        ]
+    }
+}

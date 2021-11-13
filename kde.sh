@@ -27,6 +27,7 @@ WantedBy=multi-user.target
 BLOCK
 
 #v2ray配置文件 还未配置
+mkdir /etc/v2ray
 
 
 

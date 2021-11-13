@@ -31,7 +31,6 @@ systemctl enable NetworkManager
 useradd -m djt
 echo djt:qwe123 | chpasswd
 usermod -aG wheel djt
-#echo "djt ALL=(ALL) ALL" >> /etc/sudoers.d/djt
 cp /etc/sudoers /etc/sudoers.back
 sed -i 's/\# %wheel/%wheel/g' /etc/sudoers
 umount -R /mnt
