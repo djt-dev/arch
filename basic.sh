@@ -17,9 +17,9 @@ echo "127.0.1.1 arch.localdomain arch" >> /etc/hosts
 echo root:qwe123|chpasswd
 
 cp /etc/pacman.conf /etc/pacman.conf.back
-sed -i 's/\#ParallelDownloads =/ParallelDownloads = 5/' /etc/pacman.conf
-#echo "[archlinuxcn]" >>/etc/pacman.conf
-#echo "Server = https://mirrors.aliyun.com/archlinuxcn/\$arch" >> /etc/pacman.conf
+sed -i 's/\#ParallelDownloads/ParallelDownloads/g' /etc/pacman.conf
+echo "[archlinuxcn]" >>/etc/pacman.conf
+echo "Server = https://mirrors.aliyun.com/archlinuxcn/\$arch" >> /etc/pacman.conf
 
 pacman -S --noconfirm grub efibootmgr networkmanager bash-completion dialog base-devel linux-headers xdg-user-dirs
 
